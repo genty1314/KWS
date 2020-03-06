@@ -1,0 +1,7 @@
+chainmap
+torch >= 1.00
+numpy >= 1.15.3
+cherrypy>=11.0.0,<=11.99
+librosa>=0.6.2
+numpy>=1.12
+git+https://github.com/daemon/pytorch-pcen
