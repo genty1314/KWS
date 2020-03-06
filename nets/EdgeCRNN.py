@@ -1,5 +1,4 @@
 # coding=utf-8
-# ref: https://github.com/ericsun99/Shufflenet-v2-Pytorch/blob/master/ShuffleNetV2.py
 import torch
 import torch.nn as nn
 
