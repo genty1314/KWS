@@ -80,9 +80,9 @@ def EdgeCRNN_block(inp, oup_inc, stride):
     return left_banch, right_banch
 
 
-class InvertedResidual(nn.Module):
+class EdgeCRNN_Residual(nn.Module):
     def __init__(self, inp, oup, stride, benchmodel):
-        super(InvertedResidual, self).__init__()
+        super(EdgeCRNN_Residual, self).__init__()
         self.benchmodel = benchmodel
         self.stride = stride
         assert stride in [1, 2]
@@ -144,9 +144,9 @@ class EdgeCRNN(nn.Module):
             for i in range(numrepeat):
                 if i == 0:
                     # inp, oup, stride, benchmodel):
-                    self.features.append(InvertedResidual(input_channel, output_channel, 2, 2))
+                    self.features.append(EdgeCRNN_Residual(input_channel, output_channel, 2, 2))
                 else:
-                    self.features.append(InvertedResidual(input_channel, output_channel, 1, 1))
+                    self.features.append(EdgeCRNN_Residual(input_channel, output_channel, 1, 1))
                 input_channel = output_channel
         # make it nn.Sequential
         self.features = nn.Sequential(*self.features)  # 16层网络
